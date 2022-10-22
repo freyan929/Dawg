@@ -20,6 +20,8 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Test" component={TestScreen} />
         <Stack.Screen name="Landing" component={LandingScreen} />
+        <Stack.Screen name="Call" component={CallScreen} />
+        <Stack.Screen name="FriendFeed" component={FeedScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -49,7 +51,7 @@ const HomeScreen = ({ navigation }) => {
         title="Head to Landing"
         type="solid"
         radius="20"
-        onPress={() => navigation.navigate('Landing', { name: 'Harshitha' }, {friend: 'Sri'})} />
+        onPress={() => navigation.navigate('Landing', { name: 'Harshitha' }, {friend: 'Sri'},)} />
     </View>
   );
 };
@@ -69,6 +71,25 @@ const TestScreen = ({ navigation, route }) => {
         <StatusBar style="auto" />
         <Button
           title="Press this button!!!!"
+          onPress={() => Alert.alert('AAAAH u pressed a button')}
+        />
+      </View>
+  );
+};
+
+const CallScreen = ({ navigation, route }) => {
+  return (
+    <View style={styles.container}>
+      <Text>This is {route.params.name}'s profile</Text>
+    </View>
+  );
+};
+
+const FeedScreen = ({ navigation, route }) => {
+  return (
+    <View style={styles.feed}>
+        <Button
+          title="@ is finally awake at 3pm"
           onPress={() => Alert.alert('AAAAH u pressed a button')}
         />
       </View>
@@ -125,5 +146,16 @@ const styles = StyleSheet.create({
   },
   homeContainer: {
     backgroundColor: '#fff'
-  }
+  },
+  feed: {
+    flex: 1,
+    backgroundColor: '#EDE4E0',
+    tabBarOptions: {
+      style: {
+        backgroundColor: '#9F8772',
+      }
+    },
+    alignItems: 'start',
+    justifyContent: 'start',
+  },
 });
