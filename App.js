@@ -4,6 +4,7 @@ import { StyleSheet, headerStyle, Text, Image, View, Alert } from 'react-native'
 import { Button } from '@rneui/themed';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {TouchableOpacity} from 'react-native'
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Test" component={TestScreen} />
+        <Stack.Screen name="Landing" component={LandingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -41,6 +43,13 @@ const HomeScreen = ({ navigation }) => {
         type="solid"
         radius="20"
         onPress={() => navigation.navigate('Test')} />
+
+    <Button
+      style={styles.buttonStyle}
+        title="Head to Landing"
+        type="solid"
+        radius="20"
+        onPress={() => navigation.navigate('Landing', { name: 'Harshitha' }, {friend: 'Sri'})} />
     </View>
   );
 };
@@ -63,6 +72,37 @@ const TestScreen = ({ navigation, route }) => {
           onPress={() => Alert.alert('AAAAH u pressed a button')}
         />
       </View>
+  );
+};
+
+const LandingScreen = ({ navigation, route }) => {
+  return (
+    <View style={styles.container}>
+      <Text> Hi {route.params.name}, Welcome To Dawg. </Text>
+      <Text> Say hi to {route.params.friend}! </Text>
+      <Image source={require('./favicon.png')} />
+      <Button
+          title="Ring"
+          onPress={() => navigation.navigate('Profile', { name: 'Harshitha' })} />
+      <View style={{ flex: 1, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center', }}>
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+            <View>
+             <Text>
+              Friends
+             </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+            <View>
+              <Text>
+                Profile
+            </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
   );
 };
 
