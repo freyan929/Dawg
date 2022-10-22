@@ -99,22 +99,24 @@ const FeedScreen = ({ navigation, route }) => {
 const LandingScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
+      <View style={styles.container}>
       <Text> Hi {route.params.name}, Welcome To Dawg. </Text>
       <Text> Say hi to {route.params.friend}! </Text>
       <Image source={require('./favicon.png')} />
       <Button
           title="Ring"
           onPress={() => navigation.navigate('Profile', { name: 'Harshitha' })} />
-      <View style={{ flex: 1, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center', }}>
+      </View>
+      <View style={{ flex: 1, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center', size: '20px' }}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
-          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '665A48' }}>
             <View>
              <Text>
               Friends
              </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '665A48' }}>
             <View>
               <Text>
                 Profile
