@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {TouchableOpacity} from 'react-native'
 import image from './assets/favicon.png';
 import image1 from './assets/talking.jpeg';
-import image from './assets/woman.jpeg';
+import image2 from './assets/woman.jpeg';
 
 console.log(image);
 console.log(image1);
