@@ -5,6 +5,8 @@ import { Button } from '@rneui/themed';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {TouchableOpacity} from 'react-native'
+import { SearchBar } from 'react-native-elements';
+
 import image from './assets/favicon.png';
 import image1 from './assets/talking.jpeg';
 import image2 from './assets/woman.jpeg';
@@ -26,7 +28,6 @@ export default function App() {
        <Stack.Screen name="Landing" component={LandingScreen} />
        <Stack.Screen name="Call" component={CallScreen}/>
        <Stack.Screen name="Login" component={SecondScreen}/>
- 
      </Stack.Navigator>
    </NavigationContainer>
  );
@@ -37,12 +38,19 @@ const HomeScreen = ({ navigation }) => {
    <View style={styles.container}>
     {/* IMAGE FOR LOGO */}
  
+    <Button
+     style={styles.buttonStyle}
+     title="Sign Up to See Your Dawgs"
+     type="outline"
+     radius="20"
+     onPress={() => navigation.navigate('SecondScreen', { name: 'Lilly' })} />
+
    <Button
      style={styles.buttonStyle}
      title="Log In to See Your Dawgs"
      type="outline"
      radius="20"
-     onPress={() => navigation.navigate('Login', { name: 'Lilly' })} />
+     onPress={() => navigation.navigate('SecondScreen', { name: 'Lilly' })} />
    </View>
  );
 };
@@ -50,24 +58,32 @@ const HomeScreen = ({ navigation }) => {
 const SecondScreen = ({ navigation, route }) => {
  return (
    <View style={styles.container}>
- 
+      <Text>
+        Please Enter Your Username and Password.
+      </Text>
+      <SearchBar
+        placeholder="Enter Username"
+        onChangeText={this.updateSearch}
+        value={search}
+      />
+
+      <SearchBar
+        placeholder="Enter Password"
+        onChangeText={this.updateSearch}
+        value={search}
+      />
+
    <Button
      style={styles.buttonStyle}
-       title="Empty we can put something here"
+       title="Login"
        type="solid"
        radius="20"
-       onPress={() => navigation.navigate('Test')} />
- 
-   <Button
-     style={styles.buttonStyle}
-       title="Head to Landing"
-       type="solid"
-       radius="20"
-       onPress={() => navigation.navigate('Landing', { name: 'Lilly', friend: 'Kate'})} />
- 
+       onPress={() => navigation.navigate('Landing')} />
    </View>
  );
 };
+
+
  
 const ProfileScreen = ({ navigation, route }) => {
  return (
