@@ -5,7 +5,13 @@ import { Button } from '@rneui/themed';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {TouchableOpacity} from 'react-native'
+import image from './assets/favicon.png';
+import image1 from './assets/talking.jpeg';
+import image from './assets/woman.jpeg';
 
+console.log(image);
+console.log(image1);
+console.log(image2);
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -102,21 +108,21 @@ const LandingScreen = ({ navigation, route }) => {
       <View style={styles.container}>
       <Text> Hi {route.params.name}, Welcome To Dawg. </Text>
       <Text> Say hi to {route.params.friend}! </Text>
-      <Image source={require('./favicon.png')} />
+      <Image source={image2} />
       <Button
           title="Ring"
           onPress={() => navigation.navigate('Profile', { name: 'Harshitha' })} />
       </View>
-      <View style={{ flex: 1, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center', size: '20px' }}>
+      <View style={{ flex: 1, backgroundColor: '#665A48', alignItems: 'center', justifyContent: 'center', size: '20px' }}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
-          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '665A48' }}>
+          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#665A48' }}>
             <View>
              <Text>
               Friends
              </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '665A48' }}>
+          <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#665A48' }}>
             <View>
               <Text>
                 Profile
