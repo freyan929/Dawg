@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, headerStyle, Text, Image, View, Alert } from 'react-native';
+import { Button } from '@rneui/themed';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -24,16 +25,32 @@ export default function App() {
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <><Button
-      title="Go to Harshitha's profile"
-      onPress={() => navigation.navigate('Profile', { name: 'Harshitha' })} /><Button
-        title="Go home babe"
-        onPress={() => navigation.navigate('Test')} /></>
+    <View style={styles.container}>
+     {/* IMAGE FOR LOGO */}
+
+    <Button
+      style={styles.buttonStyle}
+      title="Log In to See Your Dawgs"
+      type="outline"
+      radius="20"
+      onPress={() => navigation.navigate('Profile', { name: 'Harshitha' })} />
+
+    <Button
+      style={styles.buttonStyle}
+        title="Become a Dawg"
+        type="solid"
+        radius="20"
+        onPress={() => navigation.navigate('Test')} />
+    </View>
   );
 };
 
 const ProfileScreen = ({ navigation, route }) => {
-  return <Text>This is {route.params.name}'s profile</Text>;
+  return (
+    <View style={styles.container}>
+      <Text>This is {route.params.name}'s profile</Text>
+    </View>
+  );
 };
 
 const TestScreen = ({ navigation, route }) => {
@@ -53,8 +70,20 @@ const TestScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#EDE4E0',
+    tabBarOptions: {
+      style: {
+        backgroundColor: '#9F8772',
+      }
+    },
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonStyle: {
+    margin: 5,
+    size: 'lg',
+  },
+  homeContainer: {
+    backgroundColor: '#fff'
+  }
 });
