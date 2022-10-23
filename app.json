@@ -27,7 +27,19 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "config": {
+        "firebase": {
+          "appId": "1:1082251606918:ios:a2800bc715889446e24a07",
+          "apiKey": "AIzaXXXXXXXX-xxxxxxxxxxxxxxxxxxx",
+          "clientId": "000000000000-0000000000000.apps.googleusercontent.com",
+          "trackingId": 12345567890,
+          "databaseURL": "https://myexpoapp777.firebaseio.com",
+          "storageBucket":  "myexpoapp777.appspot.com",
+          "projectId": "myexpoapp777",
+          "messagingSenderId":  123454321
+        }
+      }
     }
   }
 }
